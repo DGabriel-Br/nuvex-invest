@@ -20,11 +20,29 @@ ollama pull phi4
 
 ---
 
+## Instalação
+
+Clone o repositório e instale as dependências de cada camada:
+
+```bash
+# Dependências Python (backend)
+cd backend
+uv sync
+
+# Dependências Node (frontend) — em outro terminal
+cd frontend
+npm install
+```
+
+> O arquivo `backend/requirements.txt` lista todas as dependências Python com versões pinadas,
+> gerado automaticamente pelo `uv`. Não edite manualmente — use `uv add <pacote>` para adicionar dependências.
+
+---
+
 ## Backend
 
 ```bash
 cd backend
-uv sync
 uv run uvicorn main:app --reload
 ```
 
@@ -36,7 +54,6 @@ API disponível em `http://localhost:8000`. Documentação em `http://localhost:
 
 ```bash
 cd frontend
-npm install
 npm run dev
 ```
 
