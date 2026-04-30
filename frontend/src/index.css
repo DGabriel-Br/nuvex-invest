@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { font-size: 15px; }
+
+  body {
+    @apply bg-base text-ink font-body antialiased;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(212,168,67,0.06), transparent);
+  }
+
+  /* Scrollbar refinado */
+  ::-webkit-scrollbar { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { @apply bg-surface; }
+  ::-webkit-scrollbar-thumb { @apply bg-wire2 rounded-full; }
+
+  /* Selection */
+  ::selection { @apply bg-gold/20 text-gold-lt; }
+}
+
+@layer components {
+  /* Linha fina que separa seções — usada como border-t */
+  .rule { @apply border-t border-wire; }
+
+  /* Badge de segmento */
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono
+           tracking-widest uppercase bg-wire text-ink2 border border-wire2;
+  }
+
+  /* Input padrão */
+  .field {
+    @apply bg-surface border border-wire rounded px-3 py-2 text-sm text-ink
+           placeholder:text-ink3 focus:outline-none focus:border-gold/60
+           transition-colors font-body;
+  }
+
+  /* Botão primário */
+  .btn-primary {
+    @apply bg-gold text-base font-mono font-semibold text-sm tracking-widest uppercase
+           px-6 py-3 rounded hover:bg-gold-lt transition-colors;
+  }
+
+  /* Botão secundário / ghost */
+  .btn-ghost {
+    @apply border border-wire2 text-ink2 font-mono text-xs tracking-widest uppercase
+           px-4 py-2 rounded hover:border-gold hover:text-gold transition-colors;
+  }
+
+  /* Card base */
+  .panel {
+    @apply bg-card rounded-lg border border-wire;
+  }
+
+  /* Valor positivo */
+  .val-up   { @apply text-up font-mono; }
+  /* Valor negativo */
+  .val-dn   { @apply text-dn font-mono; }
+  /* Valor neutro / indisponível */
+  .val-null { @apply text-ink3 font-mono; }
+}
+
+@layer utilities {
+  /* Texto ticker — sempre monospace dourado */
+  .ticker { @apply font-mono font-semibold tracking-wider text-gold; }
+}
+
+/* Animação de entrada em cascata para linhas da tabela */
+@keyframes row-in {
+  from { opacity: 0; transform: translateX(-4px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.row-animate {
+  animation: row-in 0.25s ease forwards;
+}

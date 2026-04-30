@@ -1,0 +1,16 @@
+# Normaliza line endings para LF no repositório (independente do SO)
+* text=auto eol=lf
+
+# Binários — sem conversão
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.ico  binary
+*.woff binary
+*.woff2 binary
+*.ttf  binary
+*.otf  binary
+*.eot  binary
+*.db   binary
+*.sqlite binary
